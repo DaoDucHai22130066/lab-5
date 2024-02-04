@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giao tiếp người máy</title>
+    <link rel="stylesheet" href="indexstyle.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="About.html">About</a>
+            <a href="lab5.html">Lab 5</a>
+        </nav>
+    </header>
+    <main>
+    </main>
+    <div class="Home">
+        <div class="isotope-wrapper">
+            <div class="isotope-box">
+                <div id="content-tab1" class="tab-content active">
+                    <div class="button-container">
+                        <button onclick="showContent('content1')">Design</button>
+                        <a href="userscenario.html" target="_blank"><button>Implement</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="content1" class="design">
+            <div class="design-content">
+                <div>
+                    <img src="img/Untitled.jpg" alt="">
+                    <div class="button-img">
+                        <a href="https://miro.com/welcomeonboard/N0RCN2FnN0hDYm96N1NNT2t6QVBHR0tFOWM5UHF4MkRiNW1iQk12ZFVGTXI4bHhYQ1Z3OXY0U0FiQTk5Njc0cXwzNDU4NzY0NTcxMDQ4OTk5NzA4fDI=?share_link_id=735761764790" class="download-button-img" target="_blank">Miro link</a>
+                        <a href="img/User Scenario.jpg" class="download-button-img" download>Download</a>
+                    </div>
+                </div>
+                <div>
+                    <img src="img/Screenshot 2024-02-04 091530.png" alt="">
+                    <div class="button-img">
+                        <a href="https://www.figma.com/file/PD4QabaAb2oHj4eL3RiPWV/B%C6%B0%E1%BB%9Bc-%C4%91%E1%BA%B7t-v%C3%A9-xem-phim?type=design&node-id=0%3A1&mode=design&t=5HdxUUAfCUlZKGaM-1" class="download-button-img" target="_blank">Figma Link</a>
+                        <a href="img/figma-design.png" class="download-button-img" download>Download</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            var tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(function (tab) {
+                tab.classList.remove('active');
+            });
+
+            var selectedTab = document.getElementById(tabId);
+            if (selectedTab) {
+                selectedTab.classList.add('active');
+            }
+        }
+
+        showTab('content-tab1');
+
+        function showContent(contentId) {
+            // Hide all design contents initially
+            var designContents = document.querySelectorAll('.design');
+            designContents.forEach(function (content) {
+                content.style.display = 'none';
+            });
+
+            // Show the selected design content
+            var selectedContent = document.getElementById(contentId);
+            if (selectedContent) {
+                selectedContent.style.display = 'block';
+            }
+        }
+
+        showContent('content1');
+    </script>
+</body>
+
+</html>

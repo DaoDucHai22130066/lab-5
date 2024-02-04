@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>user-scenario</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="left-header">
+            <div class="lab5-toolbar">
+                <img id="logo" src="img/Aluminum Grey Movies.png" alt="Logo"> <!-- Thay đổi 'logo.png' bằng đường dẫn và tên file logo của bạn -->
+                <label>
+                    <input type="radio" name="tab" value="tab1"> <span>TRANG CHỦ</span>
+                </label>
+                <label>
+                    <input type="radio" name="tab" value="tab2" checked> <span>ĐẶT VÉ</span>
+                </label>
+                <label>
+                    <input type="radio" name="tab" value="tab3"> <span>KHUYẾN MÃI</span>
+                </label>
+                <label>
+                    <input type="radio" name="tab" value="tab3"> <span>LỊCH CHIẾU</span>
+                </label>
+                <label>
+                    <input type="radio" name="tab" value="tab3"> <span>HỎI ĐÁP</span>
+                </label>
+            </div>
+        </div>
+        <div class="right-header">
+            <form action="search" method="get">
+                <!-- Thanh tìm kiếm -->
+                <input type="text" id="search-bar" name="q" placeholder="Search..." required>
+        
+                <!-- Nút tìm kiếm -->
+                <button type="submit" id="search-button">Search</button>
+            </form>
+        </div>
+    </header>
+    <div class="choose-seat-in-film">
+        <div class="film-u-choose-left">
+            <img src="img/Screenshot 2024-02-04 091509.png" alt="">
+        </div>
+        <div class="ticket-right">
+            <h1>THE MARVELS</h1>
+            <div class="seat-container" id="seatContainer">
+                <!-- Các ghế sẽ được thêm tự động vào đây -->
+                <div class="total">Tổng giá trị: $0</div>
+                <button class="book-button" onclick="bookTickets()">Đặt Vé</button>
+                <button class="cancel-button" onclick="cancelTickets()">Hủy Vé</button>
+            </div>
+            <h1>Nội dung:</h1>
+            <p>Carol Danvers bị vướng vào sức mạnh của Kamala Khan và Monica Rambeau, buộc họ phải hợp tác với nhau để cứu vũ trụ.</p>
+        </div>
+    </div>
+    <footer>
+        <p>Bản quyền © 2023. Tất cả quyền được bảo lưu.</p>
+    </footer>
+
+    <script>
+        const seatContainer = document.getElementById('seatContainer');
+        const totalElement = document.querySelector('.total');
+        let totalValue = 0;
+
+        const rows = 5; // Số hàng
+        const seatsPerRow = 12; // Số ghế mỗi hàng
+        const additionalSeats = 1; // Số ghế bổ sung ở hàng 4 và 5
+
+        // Tạo ghế tự động
+        for (let row = 1; row <= rows; row++) {
+            const seatRow = document.createElement('div');
+            seatRow.className = 'row';
+            for (let seatNumber = 1; seatNumber <= seatsPerRow + (row >= 4 && row <= 5 ? additionalSeats : 0); seatNumber++) {
+                const seat = document.createElement('div');
+                seat.className = 'seat';
+                seat.id = `seat${row}${seatNumber}`;
+                seat.innerHTML = `<span class="seat-label">${String.fromCharCode(65 + row - 1)}${seatNumber}</span>`;
+                seatRow.appendChild(seat);
+                seat.addEventListener('click', () => {
+                    if (!seat.classList.contains('reserved')) {
+                        seat.classList.toggle('selected');
+                        updateTotal();
+                    }
+                });
+            }
+            seatContainer.appendChild(seatRow);
+        }
+
+        function updateTotal() {
+            const selectedSeats = document.querySelectorAll('.seat.selected');
+            totalValue = selectedSeats.length * 10; // Giả sử giá vé là $10
+            totalElement.textContent = `Tổng giá trị: $${totalValue}`;
+        }
+
+        function bookTickets() {
+            alert(`Đã đặt ${totalValue / 10} vé, Tổng giá trị: $${totalValue}`);
+            const selectedSeats = document.querySelectorAll('.seat.selected');
+            selectedSeats.forEach(seat => {
+                seat.classList.remove('selected');
+                seat.classList.add('reserved', 'booked-seat');
+                seat.removeEventListener('click', null); // Loại bỏ sự kiện click
+            });
+            updateTotal();
+        }
+        function cancelTickets() {
+            const reservedSeats = document.querySelectorAll('.seat.reserved');
+            reservedSeats.forEach(seat => {
+                seat.classList.remove('reserved', 'booked-seat');
+            });
+            updateTotal();
+        }
+    </script>
+</body>
+</html>

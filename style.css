@@ -1,0 +1,202 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url(img/background.png) ;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    text-align: center;
+    color: white;
+    display: flex;
+}
+
+.lab5-toolbar {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.lab5-toolbar input[type="radio"] {
+    display: none;
+}
+
+.lab5-toolbar span {
+    text-transform: capitalize;
+    display: inline-block;
+    margin-left: 30px;
+    padding-bottom: 3px;
+    font-size: 18px;
+    font-weight: 700;
+    border-bottom: 2px solid transparent;
+    transform: ease-in-out 0.5s;
+    cursor: pointer;
+}
+.contain {
+    display: flex;
+}
+.left-contain {
+    flex: 3;
+}
+.right-contain {
+    flex: 2;
+}
+.lab5-toolbar input[type="radio"]:checked + span {
+    color: rgb(87, 126, 255);
+    border-bottom: 2px solid rgb(87, 126, 255);;
+}
+
+#logo {
+    width: 70px; /* Điều chỉnh kích thước logo theo mong muốn của bạn */
+}
+.right-header {
+    flex: 1;
+    margin: auto;
+}
+.left-header {
+    flex: 3;
+    margin: auto;
+}
+#search-bar {
+    margin-left: auto;
+    padding: 8px;
+    border: none;
+    border-radius: 15px;
+}
+#search-button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #3734db;
+    color: #fff;
+    cursor: pointer;
+}
+
+section {
+    padding: 20px;
+}
+.choose-seat-in-film {
+    margin: 20px 100px;
+    padding: 30px 10px;
+    background-color:  rgba(255, 152, 67, 0.7);
+    border-radius: 10px;
+    display: flex;
+}
+.ticket-right {
+    flex: 2;
+    margin: 0 30px;
+}
+.film-u-choose-left {
+    flex: 1;
+}
+.seat-container {
+    background-color: rgba(245, 245, 245, 0.7);
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    color: rgba(0, 0, 0, 1);
+}
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+.seat {
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    background-color: #bdc3c7;
+    border-radius: 4px;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative;
+}
+/*Chọn ghế*/
+.seat.selected {
+    background-color: #27ae60;
+}
+/*Ghế đã chọn*/
+.seat.reserved {
+    background-color: #333;
+    pointer-events: none;
+}
+.total {
+    margin: 20px 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+/*button đặt vé*/
+.book-button {
+    padding: 10px 20px;
+    margin-bottom: 30px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.book-button:hover {
+    background-color: #2980b9;
+}
+/*button hủy vé*/
+.cancel-button {
+    padding: 10px 20px;
+    margin-bottom: 30px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cancel-button:hover {
+    background-color: #2980b9;
+}
+.figma {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.button-to-figma {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #5ab5ff;
+    color: #333;
+    transition: background-color 0.5s ease;
+}
+.button:hover {
+    background-color: rgb(142, 93, 255);
+}
+.user-scenario {
+    text-align: center;
+}
+.user-scenario img {
+    width: auto;
+    height: 400px;
+}
+footer {
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 10px;
+    bottom: 0;
+    width: 100%;
+}
